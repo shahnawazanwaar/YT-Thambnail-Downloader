@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | TheVintors</title>
+  <meta name="description" content="Privacy Policy - TheVintors respects your privacy. We do not collect or store any personal data." />
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f0f4ff, #fafafa);
+    }
+    .container {
+      max-width: 800px;
+      width: 90%;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: left;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #222;
+      text-align: center;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 15px;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p>
+      <strong>TheVintors</strong> values your privacy. This tool does not collect, store, or share any personal information. 
+      All data processing occurs locally within your browser, ensuring your privacy and safety.
+    </p>
+    <p>
+      We may use third-party services such as <strong>Google Analytics</strong> or advertisements, which may collect
+      anonymized usage data through cookies. For more details, please refer to their individual privacy policies.
+    </p>
+    <p>
+      By using this website, you agree to this privacy policy. If you do not agree, please discontinue use of our services.
+    </p>
+    <footer>
+      © <span id="year"></span> TheVintors. All rights reserved.
+    </footer>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

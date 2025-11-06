@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Disclaimer page for TheVintors YouTube Thumbnail Downloader. Learn about our content usage policy and YouTube affiliation terms." />
+  <title>Disclaimer | TheVintors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f0f4ff, #fafafa);
+    }
+
+    .container {
+      max-width: 800px;
+      width: 90%;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin: 50px auto;
+      text-align: left;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #111827;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #444;
+      text-align: justify;
+      margin-bottom: 18px;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px 18px;
+        margin: 25px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Disclaimer</h1>
+    <p>
+      <strong>TheVintors YouTube Thumbnail Downloader</strong> is designed solely for <strong>educational and informational purposes</strong>.
+      This website does not host, store, or distribute any copyrighted material.
+      All thumbnails displayed or downloaded through this tool are publicly available
+      from <strong>YouTube’s official servers</strong>.
+    </p>
+    <p>
+      We are <strong>not affiliated, associated, authorized, or endorsed</strong> by YouTube, Google LLC, or any of their subsidiaries.
+      Users are solely responsible for how they choose to use the tool and its outputs.
+    </p>
+    <p>
+      By continuing to use our services, you acknowledge and agree to this disclaimer and our
+      <a href="privacy.html">Privacy Policy</a>.
+    </p>
+
+    <footer>
+      © <span id="year"></span> TheVintors. All rights reserved. |
+      <a href="index.html">Home</a>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

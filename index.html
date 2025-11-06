@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Free YouTube Thumbnail Downloader to get HD, SD, MQ, or LQ thumbnails from any video URL. Simple, fast, and secure." />
+  <title>YouTube Thumbnail Downloader</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: white;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 95%;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin: 20px auto;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    /* Input + Button */
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .input-group input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .input-group button {
+      padding: 12px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #111827;
+      color: #fff;
+      cursor: pointer;
+      white-space: nowrap;
+      font-size: 1rem;
+    }
+
+    .input-group button:hover {
+      background: #333;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+      display: block;
+    }
+
+    .status {
+      margin: 10px 0;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .actions {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .actions a,
+    .actions button {
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #f8f8f8;
+      color: #111;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .actions button {
+      border: none;
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .actions button:hover {
+      background: #1e4ecb;
+    }
+
+    /* Info section */
+    .info-section {
+      margin-top: 40px;
+      text-align: left;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.6;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .info-section h2 {
+      margin-top: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: #111827;
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.85rem;
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: #4f9ef7;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* 🔹 Responsive design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.85rem;
+      }
+
+      .input-group {
+        flex-direction: column;
+      }
+
+      .input-group button {
+        width: 100%;
+      }
+
+      .actions {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .actions a,
+      .actions button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>YouTube Thumbnail Downloader</h1>
+    <p>Paste a YouTube link or video ID to preview and download the highest quality thumbnail available.</p>
+
+    <div class="input-group">
+      <input id="ytInput" type="text" placeholder="YouTube URL or ID (e.g. https://youtu.be/VIDEOID)" />
+      <button onclick="generateThumbs()">Generate</button>
+    </div>
+
+    <div class="status" id="status"></div>
+    <div id="preview"></div>
+
+    <div class="info-section">
+      <h2>YouTube Thumbnail Downloader</h2>
+      <p>
+        Our YouTube Thumbnail Downloader allows you to easily download thumbnails of your favorite YouTube videos in
+        different qualities (HD, SD, MQ, LQ). This tool works on desktop, tablet, and mobile without installing any extra
+        apps or extensions. It’s completely free and safe to use!
+      </p>
+
+      <h3>How to download YouTube thumbnails:</h3>
+      <ol>
+        <li>Go to <strong>YouTube.com</strong> and open the video whose thumbnail you want to download. Copy the video
+          URL from the browser address bar (youtube.com/watch?v=id).</li>
+        <li>Paste the video URL in our YouTube Thumbnail Downloader input box and click the <strong>Generate</strong>
+          button.</li>
+        <li>The tool will automatically fetch the highest available thumbnail quality. You can preview and download it
+          directly with one click.</li>
+      </ol>
+
+      <p>
+        Please note: This tool only provides access to publicly available thumbnails and does not store or host any
+        content. By using this service, you agree to our Terms of Use. Thank you for choosing our YouTube Thumbnail
+        Downloader!
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 TheVintors. All rights reserved. |
+    <a href="disclaimer.html">Disclaimer</a> |
+    <a href="privacy.html">Privacy Policy</a>
+  </footer>
+
+  <script>
+    const thumbs = [
+      "maxresdefault.jpg",
+      "sddefault.jpg",
+      "hqdefault.jpg",
+      "mqdefault.jpg",
+      "default.jpg"
+    ];
+    let currentIndex = 0;
+    let urls = [];
+    let videoId = "";
+
+    function extractVideoId(str) {
+      str = str.trim();
+      if (/^[a-zA-Z0-9_-]{11}$/.test(str)) return str;
+      let match = str.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+      if (match) return match[1];
+      match = str.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+      if (match) return match[1];
+      match = str.match(/embed\/([a-zA-Z0-9_-]{11})/);
+      if (match) return match[1];
+      return null;
+    }
+
+    function generateThumbs() {
+      const input = document.getElementById("ytInput").value;
+      videoId = extractVideoId(input);
+      const status = document.getElementById("status");
+      const preview = document.getElementById("preview");
+      preview.innerHTML = "";
+      if (!videoId) {
+        status.textContent = "Invalid YouTube URL or ID.";
+        return;
+      }
+      urls = thumbs.map(t => `https://img.youtube.com/vi/${videoId}/${t}`);
+      currentIndex = 0;
+      status.textContent = "Looking for best available thumbnail...";
+      loadImage();
+    }
+
+    function loadImage() {
+      const preview = document.getElementById("preview");
+      preview.innerHTML = `<img id="thumbImg" src="${urls[currentIndex]}#${Date.now()}" alt="Thumbnail" />`;
+      const img = document.getElementById("thumbImg");
+
+      img.onerror = function () {
+        if (currentIndex < urls.length - 1) {
+          currentIndex++;
+          document.getElementById("status").textContent = "Falling back to next resolution...";
+          loadImage();
+        } else {
+          document.getElementById("status").textContent = "No thumbnail found for this video.";
+          preview.innerHTML = "";
+        }
+      };
+
+      img.onload = function () {
+        document.getElementById("status").textContent = "Thumbnail loaded.";
+        showActions();
+      };
+    }
+
+    function showActions() {
+      const preview = document.getElementById("preview");
+      const imgUrl = urls[currentIndex];
+      const actions = document.createElement("div");
+      actions.className = "actions";
+      actions.innerHTML = `
+        <button onclick="downloadImage('${imgUrl}')">Download</button>
+        <a href="${imgUrl}" target="_blank">Open in new tab</a>
+      `;
+      preview.appendChild(actions);
+    }
+
+    function downloadImage(url) {
+      try {
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = videoId + "_thumbnail.jpg";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        document.getElementById("status").textContent =
+          "Download started (or image opened in new tab if blocked).";
+      } catch (e) {
+        console.error(e);
+        document.getElementById("status").textContent =
+          "Download not supported. Use 'Open in new tab' then Save image as...";
+      }
+    }
+  </script>
+</body>
+
+</html>
